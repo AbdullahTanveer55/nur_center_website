@@ -30,8 +30,6 @@
 		<!-- Prayer Times -->
 			<section id="prayer-times" class="main special">
 				<div class="container">
-					<!-- Background for this section. Swap in a new image from the board later. -->
-					<span class="image fit primary"><img src="images/pic02.jpg" alt="" /></span>
 					<div class="content">
 						<header class="major">
 							<h2>Prayer Times</h2>
@@ -102,6 +100,16 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script>
+				// Fade the Prayer Times box in when it scrolls into view.
+				(function () {
+					var el = document.getElementById('prayer-times');
+					if (!('IntersectionObserver' in window)) { el.classList.add('is-visible'); return; }
+					new IntersectionObserver(function (entries) {
+						entries.forEach(function (e) { el.classList.toggle('is-visible', e.isIntersecting); });
+					}, { threshold: 0.2 }).observe(el);
+				})();
+			</script>
 
 	</body>
 </html>
