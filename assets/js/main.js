@@ -76,41 +76,6 @@
 			$headerTitle = $header.find('header'),
 			$headerContainer = $header.find('.container');
 
-		// Make title fixed.
-			if (!browser.mobile) {
-
-				$window.on('load.hl_headerTitle', function() {
-
-					breakpoints.on('>medium', function() {
-
-						$headerTitle
-							.css('position', 'fixed')
-							.css('height', 'auto')
-							.css('top', '50%')
-							.css('left', '0')
-							.css('width', '100%')
-							.css('margin-top', ($headerTitle.outerHeight() / -2));
-
-					});
-
-					breakpoints.on('<=medium', function() {
-
-						$headerTitle
-							.css('position', '')
-							.css('height', '')
-							.css('top', '')
-							.css('left', '')
-							.css('width', '')
-							.css('margin-top', '');
-
-					});
-
-					$window.off('load.hl_headerTitle');
-
-				});
-
-			}
-
 		// Scrollex.
 			breakpoints.on('>small', function() {
 				$header.scrollex({

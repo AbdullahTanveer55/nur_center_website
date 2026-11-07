@@ -14,24 +14,23 @@
 	</head>
 	<body class="is-preload">
 
-		<!-- Header -->
-			<section id="header">
-				<header class="major">
-					<h1>Welcome to Nur Center</h1>
-					<p>As-Salamu Alaykum, Welcome to Nur Center, a place of worship, community, and belonging. Join us for the five daily prayers, connect with a warm and welcoming community, and grow together in faith. Help keep this House of Allah (SWT) alive through your presence, your prayers, and your support. Our doors are always open.</p>
-				</header>
-				<div class="container">
-					<ul class="actions special">
+		<!-- Header (landing): welcome text on the left, masjid photo on the right -->
+			<section id="header" class="hero">
+				<div class="hero-text">
+					<header class="major">
+						<h1>Welcome to Nur Center</h1>
+						<p>As-Salamu Alaykum, Welcome to Nur Center, a place of worship, community, and belonging. Join us for the five daily prayers, connect with a warm and welcoming community, and grow together in faith. Help keep this House of Allah (SWT) alive through your presence, your prayers, and your support. Our doors are always open.</p>
+					</header>
+					<ul class="actions">
 						<li><a href="#prayer-times" class="button primary scrolly">Prayer Times</a></li>
 					</ul>
 				</div>
+				<div class="hero-image" role="img" aria-label="Nur Center masjid"></div>
 			</section>
 
 		<!-- Prayer Times -->
 			<section id="prayer-times" class="main special">
 				<div class="container">
-					<!-- Background for this section. Swap in a new image from the board later. -->
-					<span class="image fit primary"><img src="images/pic02.jpg" alt="" /></span>
 					<div class="content">
 						<header class="major">
 							<h2>Prayer Times</h2>
@@ -56,6 +55,7 @@
 								</tbody>
 							</table>
 						</div>
+						<p class="prayer-note">Prayer with Jama'ah is offered for all 5 daily prayers, on time. Alhamdulillah.</p>
 					</div>
 					<a href="#footer" class="goto-next scrolly">Next</a>
 				</div>
@@ -102,6 +102,16 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script>
+				// Fade the Prayer Times box in when it scrolls into view.
+				(function () {
+					var el = document.getElementById('prayer-times');
+					if (!('IntersectionObserver' in window)) { el.classList.add('is-visible'); return; }
+					new IntersectionObserver(function (entries) {
+						entries.forEach(function (e) { el.classList.toggle('is-visible', e.isIntersecting); });
+					}, { threshold: 0.2 }).observe(el);
+				})();
+			</script>
 
 	</body>
 </html>
