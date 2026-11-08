@@ -43,10 +43,12 @@
 										<th>Iqamah</th>
 									</tr>
 								</thead>
+								<!-- Iqamah changes during the month: add [date, time] pairs to data-schedule.
+								     From each date onward the site shows that time automatically. -->
 								<tbody>
-									<tr><td>Fajr</td><td>6:00 AM</td></tr>
+									<tr><td>Fajr</td><td data-schedule='[["2026-11-01","6:00 AM"],["2026-11-18","6:15 AM"],["2026-11-30","6:30 AM"]]'>6:00 AM</td></tr>
 									<tr><td>Dhuhr</td><td>1:00 PM</td></tr>
-									<tr><td>Asr</td><td>3:45 PM</td></tr>
+									<tr><td>Asr</td><td data-schedule='[["2026-11-01","3:45 PM"],["2026-11-12","3:30 PM"]]'>3:45 PM</td></tr>
 									<tr><td>Maghrib</td><td>Sunset</td></tr>
 									<tr><td>Isha</td><td>7:15 PM</td></tr>
 									<tr class="jummah"><td>Jummah Talk (Bayan)</td><td>12:30 PM</td></tr>
@@ -122,6 +124,45 @@
 					<p>&ldquo;He is not a believer whose stomach is filled while his neighbor goes hungry.&rdquo;</p>
 					<cite>Prophet Muhammad &#xFDFA; &mdash; Al-Adab Al-Mufrad</cite>
 				</blockquote>
+			</section>
+
+		<!-- Community Foodshares: photo slideshow. Add photos by copying an <article class="slide"> block. -->
+			<section id="foodshares" class="main special reveal">
+				<div class="container">
+					<div class="content">
+						<header class="major">
+							<h2>Community Foodshares</h2>
+						</header>
+						<p class="section-lead">Come serve our community with us. Every bag we pack is a neighbor fed.</p>
+						<div class="slider photo-slider" data-interval="5000" aria-roledescription="carousel" aria-label="Community foodshare photos">
+							<div class="slides">
+								<article class="slide is-active"><img src="images/community-foodshare-1.jpg" alt="Fresh fruit and vegetables laid out in the masjid for a community foodshare" /></article>
+								<article class="slide"><img src="images/community-foodshare-2.jpg" alt="Groceries sorted on the prayer hall floor before distribution" /></article>
+								<article class="slide"><img src="images/community-foodshare-3.jpg" alt="Boxes of refrigerated food and crates of pears ready to hand out" /></article>
+							</div>
+							<div class="slider-dots" role="tablist"></div>
+						</div>
+					</div>
+					<a href="#imam" class="goto-next scrolly">Next</a>
+				</div>
+			</section>
+
+		<!-- Imam services -->
+			<section id="imam" class="main special reveal">
+				<div class="container">
+					<div class="content">
+						<header class="major">
+							<h2>Meet Imam Mohammad Bhula</h2>
+						</header>
+						<p class="section-lead">Imam Mohammad Bhula is available to the community for the following services:</p>
+						<ul class="services">
+							<li><span class="icon solid fa-ring"></span>Nikah (Marriage) Services</li>
+							<li><span class="icon solid fa-dove"></span>Funeral (Janazah) Services</li>
+							<li><span class="icon solid fa-user-friends"></span>Youth Guidance</li>
+						</ul>
+					</div>
+					<a href="#footer" class="goto-next scrolly">Next</a>
+				</div>
 			</section>
 
 		<!-- Footer -->

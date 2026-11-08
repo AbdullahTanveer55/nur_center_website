@@ -12,6 +12,22 @@
 		reveals.forEach(function (el) { el.classList.add('is-visible'); });
 	}
 
+	// Prayer times that change on set dates: show the latest entry whose date has arrived.
+	(function () {
+		var now = new Date(),
+			today = now.getFullYear() + '-' +
+				String(now.getMonth() + 1).padStart(2, '0') + '-' +
+				String(now.getDate()).padStart(2, '0');
+
+		document.querySelectorAll('[data-schedule]').forEach(function (cell) {
+			try {
+				var entries = JSON.parse(cell.getAttribute('data-schedule')), pick = null;
+				entries.forEach(function (e) { if (e[0] <= today) pick = e[1]; });
+				if (pick) cell.textContent = pick;
+			} catch (err) { /* keep the time written in the HTML */ }
+		});
+	})();
+
 	// Upcoming Programs slider: next slide slides in every N ms (data-interval).
 	document.querySelectorAll('.slider').forEach(function (slider) {
 		var slides = slider.querySelectorAll('.slide'),
