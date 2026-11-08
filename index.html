@@ -29,7 +29,7 @@
 			</section>
 
 		<!-- Prayer Times -->
-			<section id="prayer-times" class="main special">
+			<section id="prayer-times" class="main special reveal">
 				<div class="container">
 					<div class="content">
 						<header class="major">
@@ -40,22 +40,63 @@
 								<thead>
 									<tr>
 										<th>Prayer</th>
-										<th>Adhan</th>
 										<th>Iqamah</th>
 									</tr>
 								</thead>
 								<tbody>
-									<tr><td>Fajr</td><td>5:30 AM</td><td>6:00 AM</td></tr>
-									<tr><td>Dhuhr</td><td>12:45 PM</td><td>1:15 PM</td></tr>
-									<tr><td>Asr</td><td>3:45 PM</td><td>4:00 PM</td></tr>
-									<tr><td>Maghrib</td><td>6:10 PM</td><td>6:15 PM</td></tr>
-									<tr><td>Isha</td><td>7:30 PM</td><td>7:45 PM</td></tr>
-									<tr class="jummah"><td>Jummah Khutbah</td><td colspan="2">1:30 PM</td></tr>
-									<tr class="jummah"><td>Jummah Salah</td><td colspan="2">2:00 PM</td></tr>
+									<tr><td>Fajr</td><td>6:00 AM</td></tr>
+									<tr><td>Dhuhr</td><td>1:00 PM</td></tr>
+									<tr><td>Asr</td><td>3:45 PM</td></tr>
+									<tr><td>Maghrib</td><td>Sunset</td></tr>
+									<tr><td>Isha</td><td>7:15 PM</td></tr>
+									<tr class="jummah"><td>Jummah Talk (Bayan)</td><td>12:30 PM</td></tr>
+									<tr class="jummah"><td>Jummah Khutbah &amp; Salah</td><td>1:00 PM</td></tr>
 								</tbody>
 							</table>
 						</div>
 						<p class="prayer-note">Prayer with Jama'ah is offered for all 5 daily prayers, on time. Alhamdulillah.</p>
+						<!-- Monthly timetable download: add the PDF to files/ and uncomment.
+						<ul class="actions special prayer-download">
+							<li><a href="files/monthly-prayer-times.pdf" class="button icon solid fa-download" download>Monthly Prayer Times (PDF)</a></li>
+						</ul>
+						-->
+					</div>
+					<a href="#programs" class="goto-next scrolly">Next</a>
+				</div>
+			</section>
+
+		<!-- Upcoming Programs: slides advance automatically every 5 seconds.
+		     To add a program, copy one <article class="slide"> block.
+		     For a poster, put the image in images/ and add <img src="images/your-poster.jpg" alt="..." /> inside the slide. -->
+			<section id="programs" class="main special reveal">
+				<div class="container">
+					<div class="content">
+						<header class="major">
+							<h2>Upcoming Programs</h2>
+						</header>
+						<div class="slider" data-interval="5000" aria-roledescription="carousel" aria-label="Upcoming programs">
+							<div class="slides">
+								<article class="slide is-active">
+									<span class="slide-tag">Sample</span>
+									<h3>Program Title</h3>
+									<p class="slide-when">Day, Date &middot; Time</p>
+									<p>Short description of the program goes here. Replace this with the first program from the board.</p>
+								</article>
+								<article class="slide">
+									<span class="slide-tag">Sample</span>
+									<h3>Second Program</h3>
+									<p class="slide-when">Day, Date &middot; Time</p>
+									<p>Each program gets its own slide. A new one slides in every 5 seconds.</p>
+								</article>
+								<article class="slide">
+									<span class="slide-tag">Sample</span>
+									<h3>Third Program</h3>
+									<p class="slide-when">Day, Date &middot; Time</p>
+									<p>Slides can be text like this, or a poster image from the board.</p>
+								</article>
+							</div>
+							<div class="slider-dots" role="tablist"></div>
+						</div>
 					</div>
 					<a href="#footer" class="goto-next scrolly">Next</a>
 				</div>
@@ -102,16 +143,7 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-			<script>
-				// Fade the Prayer Times box in when it scrolls into view.
-				(function () {
-					var el = document.getElementById('prayer-times');
-					if (!('IntersectionObserver' in window)) { el.classList.add('is-visible'); return; }
-					new IntersectionObserver(function (entries) {
-						entries.forEach(function (e) { el.classList.toggle('is-visible', e.isIntersecting); });
-					}, { threshold: 0.2 }).observe(el);
-				})();
-			</script>
+			<script src="assets/js/custom.js"></script>
 
 	</body>
 </html>

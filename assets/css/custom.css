@@ -28,12 +28,13 @@ html {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		padding: 4em 5em 4em 8%;
+		align-items: center;
+		padding: 4em 4em;
 	}
 
 	#header.hero header,
 	#header.hero header * {
-		text-align: left;
+		text-align: center;
 	}
 
 	#header.hero header {
@@ -52,7 +53,8 @@ html {
 	}
 
 	#header.hero header.major h1:after {
-		margin-left: 0;
+		margin-left: auto;
+		margin-right: auto;
 		background: #8cd1a8;
 	}
 
@@ -61,11 +63,19 @@ html {
 		font-weight: 400;
 		line-height: 1.8em;
 		max-width: 36em;
+		margin-left: auto;
+		margin-right: auto;
 	}
 
 	#header.hero .actions {
+		justify-content: center;
 		margin-top: 1em;
+		padding-left: 0;
 	}
+
+		#header.hero .actions li {
+			padding-left: 0;
+		}
 
 	#header.hero .button.primary {
 		background-color: #ffffff;
@@ -131,6 +141,19 @@ html {
 		border-left-color: #dddddd;
 	}
 
+/* ---------- Shared: boxes fade/slide in as you scroll to them ---------- */
+
+.reveal .container {
+	opacity: 0;
+	transform: translateY(3em);
+	transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+	.reveal.is-visible .container {
+		opacity: 1;
+		transform: none;
+	}
+
 /* ---------- Prayer Times box with the mosque photo ---------- */
 
 #prayer-times .container {
@@ -142,17 +165,7 @@ html {
 	background-size: cover;
 	box-shadow: 0 1em 3em rgba(0, 0, 0, 0.15);
 	color: rgba(255, 255, 255, 0.85);
-
-	/* Fade/slide in as you scroll down to it. */
-	opacity: 0;
-	transform: translateY(3em);
-	transition: opacity 1s ease-out, transform 1s ease-out;
 }
-
-	#prayer-times.is-visible .container {
-		opacity: 1;
-		transform: none;
-	}
 
 	#prayer-times h2 {
 		color: #ffffff;
@@ -166,13 +179,23 @@ html {
 		background-color: rgba(255, 255, 255, 0.2);
 	}
 
-/* Desktop: Prayer Times box sits on the right. Tablets/phones keep it full width. */
+/* Desktop: Prayer Times box on the right, Programs box on the left.
+   Tablets/phones keep both full width. */
 @media screen and (min-width: 981px) {
+
+	#prayer-times .container,
+	#programs .container {
+		position: relative; /* keeps the down arrow centred inside the box */
+	}
 
 	#prayer-times .container {
 		margin-left: auto;
 		margin-right: 8%;
-		position: relative; /* keeps the down arrow centred inside the box */
+	}
+
+	#programs .container {
+		margin-left: 8%;
+		margin-right: auto;
 	}
 
 }
@@ -218,3 +241,118 @@ html {
 		color: #ffffff;
 		background-color: rgba(140, 209, 168, 0.18);
 	}
+
+/* Monthly timetable download button */
+.prayer-download {
+	margin: 1.5em 0 0 0;
+}
+
+	.prayer-download .button {
+		box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.6);
+		color: #ffffff !important;
+	}
+
+/* ---------- Upcoming Programs: green box with a slider ---------- */
+
+#programs .container {
+	background-color: #24543f;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='0.07' stroke-width='1.5'%3E%3Crect x='20' y='20' width='40' height='40'/%3E%3Crect x='20' y='20' width='40' height='40' transform='rotate(45 40 40)'/%3E%3Ccircle cx='40' cy='40' r='8'/%3E%3Cpath d='M0 0L12 12M80 0L68 12M0 80L12 68M80 80L68 68'/%3E%3C/g%3E%3C/svg%3E");
+	background-size: 80px 80px;
+	box-shadow: 0 1em 3em rgba(0, 0, 0, 0.15);
+	color: rgba(255, 255, 255, 0.85);
+}
+
+	#programs h2,
+	#programs h3 {
+		color: #ffffff;
+	}
+
+	#programs header.major h2:after {
+		background: rgba(255, 255, 255, 0.5);
+	}
+
+	#programs .goto-next {
+		background-color: rgba(255, 255, 255, 0.2);
+	}
+
+/* Slides are stacked in one grid cell, so the box is as tall as the tallest slide. */
+.slider .slides {
+	display: grid;
+	overflow: hidden;
+}
+
+	.slider .slide {
+		grid-area: 1 / 1;
+		opacity: 0;
+		transform: translateX(100%);
+		visibility: hidden;
+		transition: transform 0.8s ease, opacity 0.8s ease, visibility 0s linear 0.8s;
+		padding: 0 0.5em;
+	}
+
+		.slider .slide.is-active {
+			opacity: 1;
+			transform: none;
+			visibility: visible;
+			transition: transform 0.8s ease, opacity 0.8s ease, visibility 0s;
+		}
+
+		.slider .slide.is-leaving {
+			opacity: 0;
+			transform: translateX(-100%);
+			visibility: visible;
+		}
+
+		.slider .slide img {
+			display: block;
+			max-width: 100%;
+			max-height: 28em;
+			margin: 0 auto 1em auto;
+		}
+
+		.slider .slide h3 {
+			font-size: 1.4em;
+			margin-bottom: 0.5em;
+		}
+
+		.slider .slide .slide-when {
+			color: #8cd1a8;
+			font-weight: 600;
+			margin-bottom: 0.75em;
+		}
+
+		.slider .slide-tag {
+			display: inline-block;
+			border: solid 1px rgba(255, 255, 255, 0.4);
+			border-radius: 1em;
+			font-size: 0.7em;
+			letter-spacing: 0.1em;
+			line-height: 1;
+			margin-bottom: 1em;
+			padding: 0.4em 0.9em;
+			text-transform: uppercase;
+		}
+
+	.slider .slider-dots {
+		display: flex;
+		gap: 0.6em;
+		justify-content: center;
+		margin-top: 1.5em;
+	}
+
+		.slider .slider-dots button {
+			background: rgba(255, 255, 255, 0.3);
+			border: 0;
+			border-radius: 50%;
+			box-shadow: none;
+			cursor: pointer;
+			height: 0.7em;
+			line-height: 0;
+			min-width: 0;
+			padding: 0;
+			width: 0.7em;
+		}
+
+			.slider .slider-dots button.is-active {
+				background: #ffffff;
+			}
