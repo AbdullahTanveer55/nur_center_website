@@ -198,6 +198,12 @@ html {
 		margin-right: auto;
 	}
 
+	#food .container {
+		position: relative;
+		margin-left: auto;
+		margin-right: 8%;
+	}
+
 }
 
 /* Note under the table */
@@ -356,3 +362,90 @@ html {
 			.slider .slider-dots button.is-active {
 				background: #ffffff;
 			}
+
+/* ---------- Upcoming Food Distributions: light box with the poster ---------- */
+
+#food .container {
+	background: #eef6f1;
+	box-shadow: 0 1em 3em rgba(0, 0, 0, 0.12);
+}
+
+	#food h2 {
+		color: #24543f;
+	}
+
+	#food header.major h2:after {
+		background: #8cd1a8;
+	}
+
+	#food .goto-next {
+		background-color: #24543f;
+	}
+
+	#food .poster {
+		border: 0;
+		display: block;
+	}
+
+		#food .poster img {
+			display: block;
+			width: 100%;
+			max-width: 26em;
+			margin: 0 auto;
+			border-radius: 4px;
+			box-shadow: 0 0.5em 1.5em rgba(0, 0, 0, 0.15);
+			transition: transform 0.3s ease;
+		}
+
+		#food .poster:hover img {
+			transform: scale(1.02);
+		}
+
+/* ---------- Quote / short message ---------- */
+
+#quote {
+	padding: 7em 2em;
+	text-align: center;
+	opacity: 0;
+	transform: translateY(2em);
+	transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+	#quote.is-visible {
+		opacity: 1;
+		transform: none;
+	}
+
+	#quote blockquote {
+		border: 0;
+		margin: 0 auto;
+		max-width: 38em;
+		padding: 0;
+	}
+
+		#quote blockquote p {
+			color: #24543f;
+			font-size: 1.5em;
+			font-style: italic;
+			line-height: 1.6em;
+			margin-bottom: 1em;
+		}
+
+		#quote cite {
+			color: #8a9093;
+			font-size: 0.9em;
+			font-style: normal;
+			letter-spacing: 0.05em;
+		}
+
+@media screen and (max-width: 736px) {
+
+	#quote {
+		padding: 4em 1.5em;
+	}
+
+		#quote blockquote p {
+			font-size: 1.2em;
+		}
+
+}
