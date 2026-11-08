@@ -81,31 +81,22 @@ html {
 		background: #313a3d url("../../images/welcome_page.jpg") center center / cover no-repeat;
 	}
 
-/* Tablets and phones: photo on top, text below. */
+/* Tablets, phones and half-width windows: no photo, the welcome panel fills the screen. */
 @media screen and (max-width: 980px) {
 
 	#header.hero {
-		flex-direction: column-reverse;
 		height: auto;
 		min-height: 100vh;
+		min-height: 100svh; /* accounts for phone browser toolbars */
 	}
 
-		#header.hero .button.primary {
-		background-color: #ffffff;
-		color: #24543f !important;
-	}
-
-		#header.hero .button.primary:hover {
-			background-color: #e8f5ee;
-		}
-
-	#header.hero .hero-image {
-			flex: 0 0 45vh;
+		#header.hero .hero-image {
+			display: none;
 		}
 
 		#header.hero .hero-text {
-			flex: 1;
-			padding: 2.5em 1.5em 3em 1.5em;
+			flex: 1 1 100%;
+			padding: 3em 1.5em;
 		}
 
 		#header.hero header h1 {
